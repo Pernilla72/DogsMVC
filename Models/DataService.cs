@@ -16,18 +16,15 @@ public class DataService
             dogs.Add(dog);
         }
 
-        public Dog[] GetAllDogs()
+        public List<Dog> GetAllDogs()
         {
-            return dogs.ToArray();
+            return dogs.ToList();
         }
         public Dog GetDogById(int id)
-            {
-            var ret = dogs.FirstOrDefault(o => o.Id == id);
-            return ret;
-            }
-        
-
-
+        {
+        var ret = dogs.FirstOrDefault(o => o.Id == id);
+        return ret;
+        }
 }
 
 

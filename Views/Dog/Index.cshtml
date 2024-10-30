@@ -1,4 +1,5 @@
-﻿@*
+﻿@model List<DogsMVC.Models.Dog>
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -19,7 +20,7 @@
     </head>
     <body>
     <main class="container">
-        <h1>Dog's' Listed</h1>
+        <h1>Dog's Listed</h1>
         <div><a href="/Dog/CreateDog" class="btn btn-primary">Register New Dog</a></div>
         <div class="grid">
             @foreach (var dog in Model)

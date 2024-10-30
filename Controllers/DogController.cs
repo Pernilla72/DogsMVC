@@ -7,7 +7,12 @@ namespace DogsMVC.Controllers
     {
             static DataService _dataService = new DataService();
 
-            [HttpGet("")]
+            public DogController(DataService dataService)
+            {
+                _dataService = dataService;
+            }
+
+        [HttpGet("")]
             public IActionResult Index()
             {
                 var model = _dataService.GetAllDogs();
@@ -21,12 +26,27 @@ namespace DogsMVC.Controllers
                 return View(model);
             }
 
-            [HttpPost("Create")]
-            public IActionResult Create(Dog dog)
+       
+            [HttpGet("/Dog/CreateDog")]
+            public IActionResult CreateDog()
             {
-                
-                return RedirectToAction(nameof(Index));
+                return View();
             }
+        
+
+        [HttpPost("Create")]
+            public IActionResult CreateDog(Dog dog)
+            {
+
+            if (ModelState.IsValid)
+                {
+                    _dataService.AddDog(dog); // Förutsatt att _dataService är en instans av DataService
+                    return RedirectToAction("Index"); // Tillbaka till listan med hundar
+                }
+            return View(dog);
+            }
+
+
 
         //public IActionResult Index()
         //{

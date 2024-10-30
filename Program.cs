@@ -1,3 +1,5 @@
+using DogsMVC.Models;
+
 namespace DogsMVC;
 
 public class Program
@@ -8,6 +10,7 @@ public class Program
 
         // Stöd för controllers och views
         builder.Services.AddControllersWithViews();
+        builder.Services.AddSingleton<DataService>();
         var app = builder.Build();
         app.UseStaticFiles();
 
