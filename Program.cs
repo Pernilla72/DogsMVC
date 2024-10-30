@@ -1,15 +1,19 @@
-namespace DogsMVC
+namespace DogsMVC;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-            var app = builder.Build();
+        var builder = WebApplication.CreateBuilder(args);
 
-            app.MapGet("/", () => "Hello World!");
+        // Stöd för controllers och views
+        builder.Services.AddControllersWithViews();
+        var app = builder.Build();
+        app.UseStaticFiles();
 
-            app.Run();
-        }
+        app.MapControllers();
+
+        app.Run();
+
     }
 }

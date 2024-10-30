@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beloved Dog's'</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
+    <style>
+        .dog-card {
+            text-decoration: none;
+        }
+    </style>
+        
+    </head>
+    <body>
+    <main class="container">
+        <h1>Dog's' Listed</h1>
+        <div><a href="/Dog/CreateDog" class="btn btn-primary">Register New Dog</a></div>
+        <div class="grid">
+            @foreach (var dog in Model)
+            {
+                <article>
+                    <a href="Details/@dog.Id" class="Dog-card">
+                        <header>
+                            <h2>@dog.Name</h2>
+                        </header>
+                        <p>@dog.Id</p>
+                        @* <p>@dog.age</p> *@
+                    </a>
+                </article>
+            }
+        </div>
+    </main>
+    
+    </body>
+    </html>
