@@ -10,33 +10,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Beloved Dog's'</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
-    <style>
-        .dog-card {
-            text-decoration: none;
-        }
-    </style>
-        
-    </head>
-    <body>
-    <main class="container">
-        <h1>Dog's Listed</h1>
-        <div><a href="/Dog/CreateDog" class="btn btn-primary">Register New Dog</a></div>
-        <div class="grid">
-            @foreach (var dog in Model)
-            {
-                <article>
-                    <a href="Details/@dog.Id" class="Dog-card">
-                        <header>
-                            <h2>@dog.Name</h2>
-                        </header>
-                        <p>@dog.Id</p>
-                        @* <p>@dog.age</p> *@
-                    </a>
-                </article>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css">
+        <style>
+            .dog-card {
+                text-decoration: solid;
+                color:blueviolet;
+                font:lighter;
+                text-decoration-color:revert-layer;
+                background-color:bisque;
+                text-emphasis-position:right;
             }
-        </div>
-    </main>
+        </style>
+        </head>
+        <body>
+        <main class="container">
+                <h1>Dog's Listed</h1>
+        
+            <div class="grid">
+                @foreach (var dog in Model)
+                {
+                    <article>
+                        <a href="Details/@dog.Id" class="dog-card">
+                            <header>
+                            
+                                <h2>@dog.Name</h2>
+                            
+                            </header>
+                            <p>@dog.Id</p>
+                            <div><a href="/Dog/EditDog/@dog.Id" class="btn btn-primary">Edit Dog</a></div>
+                            @* <p>@dog.age</p> *@
+                        </a>
+                    </article>
+                }
+            
+            </div>
+            <div><a href="/Dog/CreateDog" class="btn btn-primary">Register New Dog</a></div>
+        </main>
     
     </body>
     </html>
